@@ -1,4 +1,10 @@
 {
+  "name": "memonight",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "body-parser": "^1.20.3",
     "ejs": "^3.1.10",
