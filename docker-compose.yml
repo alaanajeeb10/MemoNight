@@ -1,0 +1,32 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: memonight-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: memonight
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    ports:
+      - "3307:3306"
+    volumes:
+      - memonight_db:/var/lib/mysql
+    restart: unless-stopped
+
+  app:
+    build: .
+    container_name: memonight-app
+    environment:
+      DB_HOST: db
+      DB_USER: appuser
+      DB_PASSWORD: apppass
+      DB_NAME: memonight
+      PORT: 3000
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  memonight_db:
