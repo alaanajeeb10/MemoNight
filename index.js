@@ -16,10 +16,10 @@ global.db_pool = db_M.pool;
 const fe = require('./FE_R');
 app.use('/', fe);
 
-const pointsRoutes = require('./js/Points_Sripts');
+const pointsRoutes = require('./Js/Points_Sripts');
 app.use('/points', pointsRoutes);
 
-const visitsRoutes = require('./js/Visits_Scripts');
+const visitsRoutes = require('./Js/Visits_Scripts');
 app.use('/visits', visitsRoutes);
 
 app.listen(port, () => {            //server starts listening for any attempts from a client to connect at port: {port}
